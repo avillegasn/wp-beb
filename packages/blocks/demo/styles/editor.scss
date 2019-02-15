@@ -1,0 +1,28 @@
+/**
+ * Editor Styles
+ */
+@mixin clear-input-text {
+	background: none;
+	border: none;
+	box-shadow: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+}
+
+#editor {
+
+	.todo {
+
+		.greeting {
+			margin: 1em auto;
+		}
+
+	}
+
+}
+

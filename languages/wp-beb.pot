@@ -1,0 +1,65 @@
+# Copyright (C) 2019 Nelio Software
+# This file is distributed under the same license as the WordPress Block Editor Boilerplate plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Block Editor Boilerplate 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-beb\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-02-15T13:49:38+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: wp-beb\n"
+
+#. Plugin Name of the plugin
+msgid "WordPress Block Editor Boilerplate"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://neliosoftware.com/"
+msgstr ""
+
+#. Description of the plugin
+msgid "A standardized, organized, modern foundation for building high-quality WordPress Plugins that extend the block editor."
+msgstr ""
+
+#. Author of the plugin
+msgid "Nelio Software"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://neliosoftware.com"
+msgstr ""
+
+#: wp-beb.php:88
+msgid "Demo"
+msgstr ""
+
+#: packages/blocks/demo/edit.js:28
+msgctxt "user"
+msgid "Say something"
+msgstr ""
+
+#: packages/blocks/demo/index.js:4
+#: packages/blocks/demo/index.js:32
+msgctxt "text"
+msgid "Demo"
+msgstr ""
+
+#: packages/blocks/demo/index.js:5
+msgctxt "user"
+msgid "Show a demo block."
+msgstr ""
+
+#: packages/blocks/demo/index.js:42
+msgctxt "text"
+msgid "Default"
+msgstr ""
+
+#: packages/blocks/demo/index.js:43
+msgctxt "text"
+msgid "Dark"
+msgstr ""
