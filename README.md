@@ -25,7 +25,7 @@ npm install && npm run build
 
 It's safe to activate the plugin at this point. The Boilerplate adds a demo block and a demo plugin for the editor with its own demo sidebar. There will be no additional menu items, meta boxes, settings, or custom post types until you write the code for them.
 
-You will want to change the content inside readme.txt with your own information before public distribution.
+You will want to change the content inside [readme.txt](./readme.txt) with your own information before public distribution.
 
 ## Build Process
 
