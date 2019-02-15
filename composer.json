@@ -1,5 +1,5 @@
 {
-  "name": "wp-beb",
+  "name": "neliosoftware/wp-beb",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "description": "WordPress Block Editor Boilerplate",
