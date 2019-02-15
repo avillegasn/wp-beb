@@ -1,9 +1,9 @@
 const { _x } = wp.i18n;
 const {
 	Component,
-	Fragment,
 } = wp.element;
 const { RichText } = wp.editor;
+const { Dashicon } = wp.components;
 
 export default class DemoEdit extends Component {
 
@@ -14,12 +14,14 @@ export default class DemoEdit extends Component {
 				greeting,
 			},
 			setAttributes,
+			className,
 		} = this.props;
 
 		return (
 
-			<Fragment>
+			<div className={ className }>
 
+				<Dashicon icon="heart" />
 				<RichText
 					tagName="p"
 					className="greeting"
@@ -28,7 +30,7 @@ export default class DemoEdit extends Component {
 					placeholder={ _x( 'Say something', 'user', 'wp-beb' ) }
 				/>
 
-			</Fragment>
+			</div>
 
 		);
 

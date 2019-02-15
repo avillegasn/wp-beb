@@ -16,13 +16,66 @@
 
 #editor {
 
-	.todo {
+	.wp-block-wp-beb-demo {
 
-		.greeting {
-			margin: 1em auto;
+		padding: 0 1em;
+
+		&.is-style-default {
+			color: #0c9cd8;
+		}
+
+		&.is-style-awesome {
+			color:#313131;
+			animation: colorchange 4s infinite alternate;
 		}
 
 	}
 
 }
+
+@keyframes colorchange {
+	0% {
+	  color: blue;
+	}
+
+	10% {
+	  color: #8e44ad;
+	}
+
+	20% {
+	  color: #1abc9c;
+	}
+
+	30% {
+	  color: #d35400;
+	}
+
+	40% {
+	  color: blue;
+	}
+
+	50% {
+	  color: #34495e;
+	}
+
+	60% {
+	  color: blue;
+	}
+
+	70% {
+	  color: #2980b9;
+	}
+
+	80% {
+	  color: #f1c40f;
+	}
+
+	90% {
+	  color: #2980b9;
+	}
+
+	100% {
+	  color: pink;
+	}
+  }
 

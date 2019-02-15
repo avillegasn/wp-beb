@@ -40,5 +40,5 @@ export const settings = {
 
 export const styles = [
 	{ name: 'default', label: _x( 'Default', 'text', 'wp-beb' ) },
-	{ name: 'dark', label: _x( 'Dark', 'text', 'wp-beb' ) },
+	{ name: 'awesome', label: _x( 'Awesome', 'text', 'wp-beb' ) },
 ];
