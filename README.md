@@ -29,8 +29,31 @@ You will want to change the content inside [readme.txt](./readme.txt) with your 
 
 ## Build Process
 
-// TODO
-Composer
+Requirements:
+
+* [Node.js](https://nodejs.org) v8.9.1 or later.
+* [npm](https://www.npmjs.com/get-npm) v5.5.1 or later.
+* [Composer](https://getcomposer.org/) v1.8.1 or later.
+
+To compile and generate the build files just execute the following command on your terminal:
+
+```
+npm run start
+```
+This will download the Node.js and PHP dependencies under `node_modules` and `vendor` folders respectively. Once executed, the previous command will continuously watch any change in JS/CSS files and re-build them.
+
+The Boilerplate provides these additional commands:
+
+* `npm run dev` Build files and watch for changes.
+* `npm run build` Build files and minify JSS and CSS.
+* `npm run lint-php` Run PHP_CodeSniffer on PHP files to detect errors.
+* `npm run lint-php:fix` Run phpcbf to try to fix PHP errors.
+* `npm run lint-css` Run `stylelint` on SCSS files to detect errors.
+* `npm run lint-css:fix` Try to fix errors on SCSS files.
+* `npm run lint-js` Run `eslint` on JS files to detect errors.
+* `npm run lint-js:fix` Try to fix errors on JS files.
+* `npm run lint` Run linting process on PHP, SCSS and JS files.
+* `npm run update:packages` Update package dependencies in Node.js.
 
 ## Contents
 
