@@ -72,6 +72,7 @@ class WP_BEB {
 			// Add Demo category.
 			add_filter( 'block_categories', [ $this, 'block_categories' ], 9 );
 
+			// Enqueue scripts and styles.
             add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ], 9 );
 
 		}//end if

@@ -10,18 +10,22 @@ const {
 } = wp.components;
 
 function addDemoBlock() {
+
 	const demoBlock = createBlock( 'wp-beb/demo', {
 		greeting: 'Hey there!',
 		className: 'is-style-awesome',
 	} );
 	dispatch( 'core/editor' ).insertBlock( demoBlock );
+
 }//end addDemoBlock()
 
 const PluginComponent = () => (
 
+	// Every component must have only one parent element.
+	// In this case, the parent element is a Fragment.
 	<Fragment>
 		<PluginSidebarMoreMenuItem target="sidebar-name">
-			My Sidebar
+			{ _x( 'My Sidebar', 'text', 'wp-beb' ) }
 		</PluginSidebarMoreMenuItem>
 		<PluginSidebar name="sidebar-name" title="My Sidebar">
 

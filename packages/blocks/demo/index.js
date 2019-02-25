@@ -24,8 +24,8 @@ export const settings = {
 	title: BLOCK_TITLE,
 	description: BLOCK_DESCRIPTION,
 
-	// icon: <ElementIcon />, // Use a SVG for the icon.
-	icon: 'heart', // Use a Dashicon for the icon.
+	// icon: <ElementIcon />, // Use a SVG for the icon instead.
+	icon: 'heart', // Use a Dashicon for the icon instead of a SVG.
 
 	category: 'demo',
 	keywords: [

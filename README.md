@@ -115,6 +115,7 @@ Note that if you plan to extend the block editor, the files should be placed in 
 
 * `packages/blocks` is where custom block definitions reside. You will find a `demo` block that serves as an example of custom block that you can delete or modify. Remember to import your blocks in the file `packages/blocks/index.js` so that they are built properly.
 * `assets/src/js/admin` is for all admin-specific functionality. You will find an example of editor plugin in `plugin.js` that extends the block editor. You can delete it or modify such plugin.
+* `wp-beb.php` contains the function `enqueue_block_editor_assets` where you should enqueue the new files you create in `assets/src/js` and `assets/src/css` that compile into `assets/dist/js` and `assets/dist/css`, respectively.
 
 # Credits
 
