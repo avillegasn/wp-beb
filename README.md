@@ -23,19 +23,40 @@ To build the code execute the following:
 npm install && npm run build
 ```
 
-It's safe to activate the plugin at this point. The Boilerplate adds a demo block and a demo plugin for the editor with its own demo sidebar. There will be no additional menu items, meta boxes, settings, or custom post types until you write the code for them.
+It's safe to activate the plugin at this point. The Boilerplate adds a demo block and a demo plugin for the editor with its own demo sidebar. There will be no additional blocks, editor plugins, menu items, meta boxes, settings, or custom post types until you write the code for them.
 
 You will want to change the content inside [readme.txt](./readme.txt) with your own information before public distribution.
 
 ## Build Process
 
 // TODO
+Composer
 
 ## Contents
 
 The WordPress Block Editor Boilerplate includes the following files:
 
-// TODO
+* `.babelrc`. [Babel](https://babeljs.io/docs/en/config-files) config file.
+* `.editorconfig`. [EditorConfig](https://editorconfig.org/) file that helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.
+* `.eslintignore`. Used to exclude certain files from [ESLint](https://eslint.org/) linting process.
+* `.eslintrc`. [ESLint](https://eslint.org/docs/user-guide/configuring) config file.
+* `.gitattributes`. [Text file](https://git-scm.com/docs/gitattributes) that gives attributes to pathnames in Git.
+* `.gitignore`. Used to exclude certain files from the repository.
+* `composer.json`. Describes the [PHP dependencies](https://getcomposer.org/doc/01-basic-usage.md) of the project and may contain other metadata as well.
+* `composer.lock`. Used to lock multiple developers working on the same project to the same versions of PHP dependencies.
+* `index.php`. To hide the inner file structure in the server whatever that be.
+* `LICENSE.txt`. Copy of the [GNU GPL v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) license.
+* `package-lock.json`. Used to [lock multiple developers](https://docs.npmjs.com/files/package-lock.json.html) working on the same project to the same versions of NPM dependencies.
+* `package.json`. [Manifest file](https://docs.npmjs.com/files/package.json.html) for the project. Central repository of configuration where you will find the names of the packages required and the CLI commands you can use to manage the project.
+* `phpcs.ruleset.xml`. [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file) config file.
+* `postcss.config.js`. [PostCSS](https://github.com/postcss/postcss-loader) config file.
+* `README.md`. The file that you’re currently reading.
+* `readme.txt`. The template for the [WordPress plugin readme](https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/) file.
+* `webpack.config.js`. Config file for [webpack](https://webpack.js.org/configuration/).
+* `wp-beb.php`. Main file of the WordPress plugin.
+* An `assets` directory that contains CSS, JS and image resources.
+* A `languages` directory that contains the translation files for [i18n](https://codex.wordpress.org/I18n_for_WordPress_Developers).
+* A `packages` directory that contains block definitions to extend the WordPress block editor.
 
 ## Features
 
@@ -43,7 +64,7 @@ The WordPress Block Editor Boilerplate includes the following files:
 * All files, functions, and variables are documented so that you know what you need to change.
 * The Boilerplate includes all packages and dependencies to build the code using modern technologies.
 * The Boilerplate uses a strict file organization scheme that makes it easy to organize the files that compose the plugin.
-* The project includes a `.pot` file as a starting point for internationalization.
+* The project includes a `.pot` file as a starting point for internationalization inside `languages` folder.
 
 ## License
 
@@ -67,7 +88,10 @@ For reference, [here's a discussion](http://make.wordpress.org/themes/2013/03/04
 
 ### Includes
 
-// TODO
+Note that if you plan to extend the block editor, the files should be placed in the following locations:
+
+* `packages/blocks` is where custom block definitions reside. You will find a `demo` block that serves as an example of custom block that you can delete or modify. Remember to import your blocks in the file `packages/blocks/index.js` so that they are built properly.
+* `assets/src/js/admin` is for all admin-specific functionality. You will find an example of editor plugin in `plugin.js` that extends the block editor. You can delete it or modify such plugin.
 
 # Credits
 
