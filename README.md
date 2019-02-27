@@ -45,7 +45,7 @@ This will download the Node.js and PHP dependencies under `node_modules` and `ve
 The Boilerplate provides these additional commands:
 
 * `npm run dev` Build files and watch for changes.
-* `npm run build` Build files and minify JSS and CSS.
+* `npm run build` Build files and minify JS and CSS.
 * `npm run lint-php` Run PHP_CodeSniffer on PHP files to detect errors.
 * `npm run lint-php:fix` Run phpcbf to try to fix PHP errors.
 * `npm run lint-css` Run `stylelint` on SCSS files to detect errors.
