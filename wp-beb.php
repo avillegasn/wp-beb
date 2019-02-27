@@ -7,9 +7,9 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
- * @since             1.0.0
- * @package           WP_BEB
+ * @link        http://example.com
+ * @since       1.0.0
+ * @package     WP_BEB
  *
  * @wordpress-plugin
  * Plugin Name: WordPress Block Editor Boilerplate
@@ -42,10 +42,10 @@ class WP_BEB {
 
 	public static function instance() {
 
-        if ( is_null( self::$instance ) ) {
-            self::$instance = new self();
-            self::$instance->init_options();
-            self::$instance->init_hooks();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+			self::$instance->init_options();
+			self::$instance->init_hooks();
 		}//end if
 
 		return self::$instance;
@@ -54,8 +54,8 @@ class WP_BEB {
 
 	public function init_options() {
 
-        $this->plugin_path = plugin_dir_path( __FILE__ );
-        $this->plugin_url  = plugin_dir_url( __FILE__ );
+		$this->plugin_path = plugin_dir_path( __FILE__ );
+		$this->plugin_url  = plugin_dir_url( __FILE__ );
 
 		// load textdomain.
 		load_plugin_textdomain( 'wp-beb', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -66,14 +66,14 @@ class WP_BEB {
 
 		add_action( 'admin_init', [ $this, 'admin_init' ] );
 
-        // Works only if Gutenberg is available.
-        if ( function_exists( 'register_block_type' ) ) {
+		// Works only if Gutenberg is available.
+		if ( function_exists( 'register_block_type' ) ) {
 
 			// Add Demo category.
 			add_filter( 'block_categories', [ $this, 'block_categories' ], 9 );
 
 			// Enqueue scripts and styles.
-            add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ], 9 );
+			add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ], 9 );
 
 		}//end if
 
@@ -137,11 +137,11 @@ class WP_BEB {
 
 	public function admin_init() {
 
-        // Get current plugin data.
-        $data                        = get_plugin_data( __FILE__ );
-        $this->plugin_name           = $data['Name'];
-        $this->plugin_version        = $data['Version'];
-        $this->plugin_slug           = plugin_basename( __FILE__, '.php' );
+		// Get current plugin data.
+		$data                        = get_plugin_data( __FILE__ );
+		$this->plugin_name           = $data['Name'];
+		$this->plugin_version        = $data['Version'];
+		$this->plugin_slug           = plugin_basename( __FILE__, '.php' );
 		$this->plugin_name_sanitized = basename( __FILE__, '.php' );
 
 	}//end admin_init()
@@ -153,6 +153,6 @@ class WP_BEB {
 }
 
 function wp_beb() {
-    return WP_BEB::instance();
+	return WP_BEB::instance();
 }//end wp_beb()
 add_action( 'plugins_loaded', 'wp_beb' );
