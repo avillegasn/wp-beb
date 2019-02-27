@@ -15,7 +15,7 @@ You will want to rename it and the content inside of it to fit your needs. For e
 * rename files from `wp-beb` to `example-me`
 * change `wp-beb` to `example-me`
 * change `wp_beb` to `example_me`
-* change `WP_BEB_` to `EXAMPLE_ME_`
+* change `WP_BEB` to `EXAMPLE_ME`
 
 To build the code execute the following:
 
