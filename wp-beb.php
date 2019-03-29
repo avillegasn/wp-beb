@@ -64,7 +64,7 @@ class WP_BEB {
 
 	public function init_hooks() {
 
-		add_action( 'admin_init', [ $this, 'admin_init' ] );
+		add_action( 'init', [ $this, 'plugin_data_init' ] );
 
 		// Works only if Gutenberg is available.
 		if ( function_exists( 'register_block_type' ) ) {
@@ -135,16 +135,16 @@ class WP_BEB {
 
 	}//end enqueue_block_editor_assets()
 
-	public function admin_init() {
+	public function plugin_data_init() {
 
-		// Get current plugin data.
-		$data                        = get_plugin_data( __FILE__ );
-		$this->plugin_name           = $data['Name'];
-		$this->plugin_version        = $data['Version'];
+		$data = get_file_data( __FILE__, [ 'Plugin Name', 'Version' ], 'plugin' );
+
+		$this->plugin_name           = $data[0];
+		$this->plugin_version        = $data[1];
 		$this->plugin_slug           = plugin_basename( __FILE__, '.php' );
 		$this->plugin_name_sanitized = basename( __FILE__, '.php' );
 
-	}//end admin_init()
+	}//end plugin_data_init()
 
 	public function admin_menu() {
 
