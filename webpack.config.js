@@ -1,9 +1,9 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
-const CleanWebpackPlugin = require( 'clean-webpack-plugin' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
 const { exec } = require( 'child_process' );
@@ -11,7 +11,12 @@ const { exec } = require( 'child_process' );
 const inProduction = ( 'production' === process.env.NODE_ENV );
 
 const config = {
-
+	// https://github.com/webpack-contrib/css-loader/issues/447
+	node: {
+		fs: 'empty',
+	},
+	// https://webpack.js.org/migrate/4/#mode
+	mode: process.env.NODE_ENV,
 	// Ensure modules like magnific know jQuery is external (loaded via WP).
 	externals: {
 		$: 'jQuery',
@@ -30,37 +35,42 @@ const config = {
 				exclude: /node_modules/,
 				loaders: [
 					'babel-loader',
-				],
+				]
 			},
 
 			// Create RTL styles.
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract( 'style-loader' ),
+				use: [
+		          {
+		            loader: MiniCssExtractPlugin.loader,
+		            options: {
+		              // you can specify a publicPath here
+		              // by default it uses publicPath in webpackOptions.output
+		              publicPath: '../',
+		              hmr: process.env.NODE_ENV === 'development',
+		            },
+		          },
+		          'css-loader',
+		        ],
+				//*/
 			},
 
 			// SASS to CSS.
 			{
 				test: /\.scss$/,
-				use: ExtractTextPlugin.extract( {
-					use: [ {
-						loader: 'css-loader',
-						options: {
-							sourceMap: true,
-						},
-					}, {
-						loader: 'postcss-loader',
-						options: {
-							sourceMap: true,
-						},
-					}, {
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true,
-							outputStyle: ( inProduction ? 'compressed' : 'nested' ),
-						},
-					} ],
-				} ),
+
+				use: [
+		          {
+		            loader: MiniCssExtractPlugin.loader,
+		            options: {
+		              hmr: process.env.NODE_ENV === 'development',
+		            },
+		          },
+		          'css-loader',
+		          'postcss-loader',
+		          'sass-loader',
+		        ],
 			},
 
 			// Image files.
@@ -94,10 +104,7 @@ const config = {
 
 		new ProgressBarPlugin( { clear: false } ),
 
-		// Removes the "dist" folder before building.
-		new CleanWebpackPlugin( [ 'assets/dist' ] ),
-
-		new ExtractTextPlugin( 'css/[name].css' ),
+		new MiniCssExtractPlugin( {filename:'css/[name].css'} ),
 
 		// Create RTL css.
 		new WebpackRTLPlugin(),
@@ -149,7 +156,13 @@ if ( inProduction ) {
 	exec( 'wp i18n make-pot . languages/wp-beb.pot --exclude=assets/dist' );
 
 	// Uglify JS.
-	config.plugins.push( new webpack.optimize.UglifyJsPlugin( { sourceMap: true } ) );
+	config.optimization = {
+		minimizer: [
+			new UglifyJsPlugin( { sourceMap: true } )
+		]
+	};
+
+	//config.plugins.push(  );
 
 	// Minify CSS.
 	config.plugins.push( new webpack.LoaderOptionsPlugin( { minimize: true } ) );
