@@ -18,7 +18,7 @@
     "lint": "npm run lint-php && npm run lint-css && npm run lint-js",
     "update:packages": "npm i -g npm-check-updates && npm-check-updates -u && npm install",
     "postinstall": "composer install",
-    "clean": "rm -rf ./assets/dist"
+    "clean": "rimraf ./assets/dist"
   },
   "author": "Nelio Software",
   "license": "GPL-2.0-or-later",
@@ -64,7 +64,8 @@
     "webpack-rtl-plugin": "^2.0.0"
   },
   "dependencies": {
-    "npm": "^6.9.0"
+    "npm": "^6.9.0",
+    "rimraf": "^2.6.3"
   },
   "engines": {
     "node": "8.9.1",
